@@ -765,6 +765,42 @@ export default function RightPanel({
                 </div>
               )
             })}
+
+            {/* Legal Links & Spotify Disclaimer Footer */}
+            <div
+              style={{
+                marginTop: '16px',
+                padding: '16px 12px 10px 12px',
+                borderTop: '1px solid var(--border-glass)',
+                textAlign: 'center',
+                fontSize: '11px',
+                color: 'var(--text-muted)',
+                lineHeight: 1.5,
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '8px' }}>
+                <a
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}
+                >
+                  Privacy Policy
+                </a>
+                <span>•</span>
+                <a
+                  href="/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}
+                >
+                  Terms of Service
+                </a>
+              </div>
+              <div style={{ fontSize: '10px', opacity: 0.8 }}>
+                Spotify Map is an independent application and is not affiliated with or endorsed by Spotify AB.
+              </div>
+            </div>
           </div>
         )}
       </div>

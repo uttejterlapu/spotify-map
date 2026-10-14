@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=jsonv2&addressdetails=1`;
     const res = await fetch(url, {
       headers: {
-        'User-Agent': 'SpotineoMapApp/1.0',
+        'User-Agent': 'SpotifyMapApp/1.0',
         'Accept-Language': 'en',
       },
       next: { revalidate: 86400 },
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     if (res.ok) {
       const data = await res.json();
       const addr = data.address || {};
-      
+
       const localArea =
         addr.neighbourhood ||
         addr.suburb ||

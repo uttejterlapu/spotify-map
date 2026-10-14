@@ -60,7 +60,7 @@ export default function Header({
             <Radio size={15} color="#000" />
           </div>
           <span className="header-brand-title" style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>
-            Spotineo
+            Spotify Map
           </span>
         </div>
 

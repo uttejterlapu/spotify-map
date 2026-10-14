@@ -66,7 +66,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('spotineo_anonymous_mode');
+      const stored = localStorage.getItem('spotify_map_anonymous_mode');
       if (stored === 'true') {
         setIsAnonymous(true);
       }
@@ -77,7 +77,7 @@ export default function Home() {
     setIsAnonymous((prev) => {
       const next = !prev;
       if (typeof window !== 'undefined') {
-        localStorage.setItem('spotineo_anonymous_mode', String(next));
+        localStorage.setItem('spotify_map_anonymous_mode', String(next));
       }
       return next;
     });
@@ -88,7 +88,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('spotineo_theme') as 'dark' | 'light' | null;
+      const savedTheme = localStorage.getItem('spotify_map_theme') as 'dark' | 'light' | null;
       if (savedTheme) {
         setTheme(savedTheme);
         document.documentElement.setAttribute('data-theme', savedTheme);
@@ -105,7 +105,7 @@ export default function Home() {
     setTheme((prev) => {
       const next = prev === 'dark' ? 'light' : 'dark';
       if (typeof window !== 'undefined') {
-        localStorage.setItem('spotineo_theme', next);
+        localStorage.setItem('spotify_map_theme', next);
         document.documentElement.setAttribute('data-theme', next);
       }
       return next;
@@ -115,10 +115,10 @@ export default function Home() {
   // Initialize persistent device ID (one user per device)
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      let id = localStorage.getItem('spotineo_device_id');
+      let id = localStorage.getItem('spotify_map_device_id');
       if (!id) {
         id = `dev-${Math.random().toString(36).substring(2, 9)}`;
-        localStorage.setItem('spotineo_device_id', id);
+        localStorage.setItem('spotify_map_device_id', id);
       }
       setDeviceId(id);
       setCurrentUser((prev) => ({
@@ -382,7 +382,7 @@ export default function Home() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user),
           });
-        } catch (e) {}
+        } catch (e) { }
       }
 
       try {
@@ -408,7 +408,7 @@ export default function Home() {
             });
           }
         }
-      } catch (e) {}
+      } catch (e) { }
     };
 
     syncPresence();
@@ -438,7 +438,7 @@ export default function Home() {
           });
         }
       }
-    } catch (e) {}
+    } catch (e) { }
   }, []);
 
   useEffect(() => {
@@ -467,7 +467,7 @@ export default function Home() {
       if (res.ok) {
         fetchChat();
       }
-    } catch (e) {}
+    } catch (e) { }
   };
 
   const handleSendDirectMessage = (recipientId: string, text: string, trackAttachment?: Track | null) => {
